@@ -12,9 +12,9 @@ This project demonstrates two core API capabilities:
 ## Market Context
 
 This prototype explores Mastercard's 2026 open finance strategy, combining AI agent governance with ESG transparency through:
-- **Secure spend controls for autonomous agents** - Implements guardrails like spending limits and prohibited merchant categories to ensure responsible AI commerce
-- **Real-time carbon impact enrichment** - Provides immediate environmental feedback on transactions, enabling sustainability tracking and reporting
-- **Open API gateway pattern** - Demonstrates scalable service composition for future open finance capabilities
+- **Secure spend controls for autonomous agents** - Implements guardrails like spending limits and prohibited merchant categories to ensure responsible AI commerce.
+- **Real-time carbon impact enrichment** - Provides immediate environmental feedback on transactions, enabling sustainability tracking and reporting.
+- **Open API gateway pattern** - Demonstrates scalable service composition for future open finance capabilities.
 
 The project bridges the intersection of responsible AI commerce and sustainability reporting—addressing an emerging market need for trustworthy, transparent agent-based financial systems.
 
@@ -22,13 +22,13 @@ The project bridges the intersection of responsible AI commerce and sustainabili
 
 ```
 .
-├── main.py              # Standalone authorization API (legacy/reference)
+├── main.py              # Standalone authorization API 
 ├── gateway.py           # FastAPI gateway routing to all APIs
 ├── requirements.txt     # Python dependencies
 ├── README.md            # This file
 └── apis/
     ├── agent_pay.py     # Agentic Pay authorization endpoint
-    └── carbon_impact.py # Carbon footprint enrichment endpoint
+    └── carbon_impact.py # Carbon Impact enrichment endpoint
 ```
 
 ## Setup & Installation
@@ -57,9 +57,13 @@ Start the FastAPI server:
 uvicorn gateway:app --reload --port 8000
 ```
 
-The API will be available at `http://localhost:8000`
+The API will be available at:
+- **Local development (on your machine):** `http://localhost:8000`
+- **GitHub Codespace:** Use the forwarded URL shown in the port tab (e.g., `https://your-codespace-url.app.github.dev`)
 
-View interactive API documentation at `http://localhost:8000/docs`
+View interactive API documentation:
+- **Swagger UI:** `/docs` 
+- **ReDoc:** `/redoc` (alternative documentation format)
 
 ## API Endpoints
 
