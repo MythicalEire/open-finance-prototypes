@@ -1,6 +1,7 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from pydantic import BaseModel, Field
 from typing import Dict, Any
+from errors import APIException, ErrorCode
 
 router = APIRouter()
 
@@ -46,17 +47,21 @@ async def authorize_agent(request: AgentAuthRequest) -> Dict[str, Any]:
     """
     # 1. Check for Spending Limit Guardrail
     if request.spending_limit > 500:
-        raise HTTPException(
-            status_code=403, 
-            detail="Limit Exceeded: Transactions over $500 require human MFA step-up."
+        raise APIException(
+            code=ErrorCode.LIMIT_EXCEEDED,
+            message="Limit Exceeded: Transactions over $500 require human MFA step-up.",
+            status_code=403,
+            details={"max_allowed": 500, "requested": request.spending_limit}
         )
 
     # 2. Check for High-Risk Category Guardrail
     prohibited_categories = ["gambling", "casino", "betting", "crypto"]
     if request.merchant_category.lower() in prohibited_categories:
-        raise HTTPException(
-            status_code=403, 
-            detail=f"Governance Violation: AI Agents are prohibited from {request.merchant_category}."
+        raise APIException(
+            code=ErrorCode.GOVERNANCE_VIOLATION,
+            message=f"Governance Violation: AI Agents are prohibited from {request.merchant_category}.",
+            status_code=403,
+            details={"prohibited_category": request.merchant_category}
         )
 
     # 3. Success Path
