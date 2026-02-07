@@ -52,7 +52,7 @@ steps = [
         }
     },
     {
-        "title": "Carbon Impact — Enrich Transaction",
+        "title": "Carbon Impact — Enrich Transaction (LOW)",
         "request": {
             "mcc": "5411",
             "amount": 50.00,
@@ -61,7 +61,22 @@ steps = [
         "response": {
             "original_transaction": "Weekly groceries",
             "merchant_category": "Grocery Stores",
-            "carbon_footprint_kg": 6.0
+            "carbon_footprint_kg": 6.0,
+            "insight": {"text": "Low carbon impact — consider this option frequently", "good": True}
+        }
+    },
+    {
+        "title": "Carbon Impact — Enrich Transaction (HIGH)",
+        "request": {
+            "mcc": "5541",
+            "amount": 50.00,
+            "description": "Fuel purchase"
+        },
+        "response": {
+            "original_transaction": "Fuel purchase",
+            "merchant_category": "Gas Stations",
+            "carbon_footprint_kg": 105.0,
+            "insight": {"text": "High carbon impact — consider alternatives or offsets", "good": False}
         }
     }
 ]
@@ -72,10 +87,14 @@ def render_card(draw, x, y, w, h, title, body_lines, font_title, font_body):
     draw.rectangle([x, y, x+w, y+h], fill=CARD_BG, outline=(60,60,60))
     # title
     draw.text((x+padding, y+padding), title, font=font_title, fill=ACCENT)
-    # body
+    # body (supports either plain strings or (text, color) tuples)
     oy = y+padding+40
-    for line in body_lines:
-        draw.text((x+padding, oy), line, font=font_body, fill=TEXT_COLOR)
+    for item in body_lines:
+        if isinstance(item, tuple):
+            line, color = item
+        else:
+            line, color = item, TEXT_COLOR
+        draw.text((x+padding, oy), line, font=font_body, fill=color)
         oy += 22
 
 for step in steps:
@@ -94,9 +113,17 @@ for step in steps:
     render_card(d, 20, 100, 420, 320, 'Request', req_text, font_title, font_body)
     # response card
     res_text = []
-    res_json = json.dumps(step['response'], indent=2)
+    # render response fields except 'insight'
+    resp_fields = {k: v for k, v in step['response'].items() if k != 'insight'}
+    res_json = json.dumps(resp_fields, indent=2)
     for line in res_json.splitlines():
         res_text += textwrap.wrap(line, width=40) or ['']
+    # append insight if present (colored)
+    insight = step['response'].get('insight')
+    if insight:
+        color = (50,205,50) if insight.get('good') else (255,69,0)
+        res_text.append('')
+        res_text.append((f"INSIGHT: {insight.get('text')}", color))
     render_card(d, 460, 100, 420, 320, 'Response', res_text, font_title, font_body)
     frames.append(img)
 
