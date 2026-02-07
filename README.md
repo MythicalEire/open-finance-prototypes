@@ -31,6 +31,41 @@ The project bridges the intersection of responsible AI commerce and sustainabili
     └── carbon_impact.py # Carbon Impact enrichment endpoint
 ```
 
+## Product Vision
+
+This prototype is intended to communicate a clear product direction and inform product decisions during your interview:
+
+- **Problem:** Autonomous agents will transact on behalf of users but lack consistent governance and environmental transparency.
+- **Solution:** Provide a single API gateway that enforces agent guardrails (spend limits, prohibited categories) and enriches transactions with carbon-impact data to enable responsible automation.
+- **Success metrics:** reduction in governance violations, number of agent transactions approved without step-up, and CO2 impact surfaced per user/month.
+
+## Demo
+
+Add a short demo GIF or video to help interviewers quickly understand the user flow.
+
+1. Start the API gateway locally (or in your Codespace):
+
+```bash
+uvicorn gateway:app --reload --port 8000
+```
+
+2. Open the forwarded URL (Codespace) or `http://localhost:8000` then visit `/docs` to explore endpoints.
+
+3. Example calls you can record for a short demo GIF:
+
+```bash
+curl -s -X POST "http://localhost:8000/agent/authorize-agent" -H "Content-Type: application/json" -d '{"agent_id":"agent_demo","spending_limit":100,"currency":"USD","merchant_category":"restaurants"}'
+
+curl -s -X POST "http://localhost:8000/carbon/enrich-transaction" -H "Content-Type: application/json" -d '{"mcc":"5411","amount":50,"description":"Weekly groceries"}'
+```
+
+4. Add a demo asset to the repo at `docs/demo.gif` and reference it here:
+
+![Demo](docs/demo.gif)
+
+If you don't have a GIF yet, remove the image line or add a short animated screen capture using a tool like `peek`, `asciinema`, or an online GIF recorder. Include a 15–30 second clip showing the Swagger UI and one successful call for each API.
+
+
 ## Setup & Installation
 
 ### Prerequisites
