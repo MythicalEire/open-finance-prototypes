@@ -9,6 +9,15 @@ This project demonstrates two core API capabilities:
 1. **Agentic Pay** - Secure authorization for AI agents with spending guardrails and category restrictions.
 2. **Carbon Impact** - ESG transaction enrichment with carbon footprint calculations.
 
+## Market Context
+
+This prototype explores Mastercard's 2026 open finance strategy, combining AI agent governance with ESG transparency through:
+- **Secure spend controls for autonomous agents** - Implements guardrails like spending limits and prohibited merchant categories to ensure responsible AI commerce
+- **Real-time carbon impact enrichment** - Provides immediate environmental feedback on transactions, enabling sustainability tracking and reporting
+- **Open API gateway pattern** - Demonstrates scalable service composition for future open finance capabilities
+
+The project bridges the intersection of responsible AI commerce and sustainability reporting—addressing an emerging market need for trustworthy, transparent agent-based financial systems.
+
 ## Project Structure
 
 ```
