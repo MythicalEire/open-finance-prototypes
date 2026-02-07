@@ -15,9 +15,9 @@ CARBON_FACTORS: Dict[str, Dict[str, Any]] = {
 
 class Transaction(BaseModel):
     """Transaction data for carbon impact enrichment."""
-    mcc: str = Field(..., description="Merchant Category Code (MCC) - 4-digit code identifying merchant type")
-    amount: float = Field(..., description="Transaction amount in the specified currency. Used to calculate carbon footprint.")
-    description: str = Field(..., description="Human-readable transaction description (e.g., 'Flight to New York' or 'Weekly groceries'")
+    mcc: str = Field(..., pattern="^\d{4}$", description="Merchant Category Code (MCC) - 4-digit code identifying merchant type")
+    amount: float = Field(..., gt=0, description="Transaction amount in the specified currency. Used to calculate carbon footprint.")
+    description: str = Field(..., min_length=1, description="Human-readable transaction description (e.g., 'Flight to New York' or 'Weekly groceries'")
     
     class Config:
         json_schema_extra = {

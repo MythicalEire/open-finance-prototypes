@@ -6,10 +6,10 @@ router = APIRouter()
 
 class AgentAuthRequest(BaseModel):
     """Request model for authorizing an AI agent for spending."""
-    agent_id: str = Field(..., description="Unique identifier for the AI agent requesting authorization")
-    spending_limit: float = Field(..., description="Maximum transaction amount in the specified currency. Must not exceed $500 for automated approval.")
+    agent_id: str = Field(..., min_length=1, description="Unique identifier for the AI agent requesting authorization")
+    spending_limit: float = Field(..., gt=0, description="Maximum transaction amount in the specified currency. Must not exceed $500 for automated approval.")
     currency: str = Field(default="USD", description="ISO 4217 currency code")
-    merchant_category: str = Field(..., description="Target merchant category (e.g., 'restaurants', 'groceries'). Cannot be a prohibited category like gambling or crypto.")
+    merchant_category: str = Field(..., min_length=1, description="Target merchant category (e.g., 'restaurants', 'groceries'). Cannot be a prohibited category like gambling or crypto.")
     
     class Config:
         json_schema_extra = {
