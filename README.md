@@ -59,9 +59,9 @@ curl -s -X POST "http://localhost:8000/agent/authorize-agent" -H "Content-Type: 
 curl -s -X POST "http://localhost:8000/carbon/enrich-transaction" -H "Content-Type: application/json" -d '{"mcc":"5411","amount":50,"description":"Weekly groceries"}'
 ```
 
-4. Add a demo asset to the repo at `docs/demo.gif` and reference it here:
+4. Add a demo asset to the repo at `docs/demo_api.gif` and reference it here:
 
-![Demo](docs/demo.gif)
+![Demo](docs/demo_api.gif)
 
 If you don't have a GIF yet, remove the image line or add a short animated screen capture using a tool like `peek`, `asciinema`, or an online GIF recorder. Include a 15–30 second clip showing the Swagger UI and one successful call for each API.
 
