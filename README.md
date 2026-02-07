@@ -201,6 +201,7 @@ app.include_router(carbon_router, prefix="/carbon", tags=["ESG Enrichment"])
 ## Future Enhancements
 
 - JWT-based API authentication
+- Add OAuth2 or API Key headers via `Security` dependencies
 - Request logging and audit trails
 - Real-time carbon factor updates from ESG partners
 - Transaction batch processing
