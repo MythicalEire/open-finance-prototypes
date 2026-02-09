@@ -33,11 +33,26 @@ The project bridges the intersection of responsible AI commerce and sustainabili
 
 ## Product Vision
 
-This prototype is intended to communicate a clear product direction and inform product decisions during your interview:
+### Why 
 
-- **Problem:** Autonomous agents will transact on behalf of users but may lack consistent governance and environmental transparency.
-- **Solution:** Provide a single API gateway that enforces agent guardrails (spend limits, prohibited categories) and enriches transactions with carbon-impact data to enable responsible automation.
-- **Success metrics:** Reduction in governance violations, number of agent transactions approved without step-up, and CO2 impact surfaced per user/month.
+Consumers and businesses are moving from manual finance to **agent‑assisted and autonomous finance**. Trust will be earned by two capabilities: 
+
+1. Strong AI spend governance so agents can act safely on the consumers behalf.
+2. Transparent impact signals so every payment can be enriched with ESG context. 
+
+This prototype demonstrates Mastercard’s ability to provide both in one open, composable experience.
+
+### What (Two Core Capabilities)
+
+1. **Agentic Pay (Authorization & Guardrails)**
+A policy and authorization surface for AI agents that issues time‑bound, scope‑limited consent tokens after policy checks (e.g., amount ceilings, merchant category restrictions). It’s purpose‑built for “human‑in‑the‑loop” controls and step‑up auth when risk increases.
+
+2. **Carbon Impact (ESG Enrichment)**
+A real‑time enrichment service that estimates transactional carbon footprint using signals like MCC and amount, returning clear, explainable impact metrics to wallets, PFMs, SMB dashboards and enterprise reporting.
+
+### How (Gateway Pattern)
+
+A **gateway‑first architecture** composes these services into a single, consistent developer and policy surface. The prototype uses a FastAPI gateway for local iteration, mapping directly to our enterprise API Gateway principles for routing, security enforcement, rate limiting, and observability as we move toward staged environments.
 
 ## Demo
 
