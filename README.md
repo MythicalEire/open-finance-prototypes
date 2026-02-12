@@ -1,17 +1,22 @@
-# Mastercard Open Finance Prototypes
+# Open Finance Prototypes
 
-A FastAPI-based prototype gateway showcasing Mastercard's 2026 Open Finance strategy with Agentic Pay authorization and ESG Carbon Impact enrichment APIs.
+A FastAPI-based prototype gateway showcasing how new APIs for Agentic Pay authorization and ESG Carbon Impact enrichment.
+
+<div style="padding: 15px; border: 1px solid #d1242f; border-left: 5px solid #d1242f; background-color: #fff5f5; border-radius: 6px;">
+<strong>Important:</strong> This repository contains sample code and theoretical APIs for demonstration purposes only. All data, logic, and responses are synthetic and do not reflect production systems or live services.
+</div>
 
 ## Overview
 
 This project demonstrates two core API capabilities:
 
-1. **Agentic Pay** - Secure authorization for AI agents with spending guardrails and category restrictions.
+1. **Agentic Pay** - Secure auth  orization for AI agents with spending guardrails and category restrictions.
 2. **Carbon Impact** - ESG transaction enrichment with carbon footprint calculations.
 
 ## Market Context
 
-This prototype explores Mastercard's 2026 open finance strategy, combining AI agent governance with ESG transparency through:
+This prototype explores future possibilities for open finance strategy, combining AI agent governance with ESG transparency through:
+
 - **Secure spend controls for autonomous agents** - Implements guardrails like spending limits and prohibited merchant categories to ensure responsible AI commerce.
 - **Real-time carbon impact enrichment** - Provides immediate environmental feedback on transactions, enabling sustainability tracking and reporting.
 - **Open API gateway pattern** - Demonstrates scalable service composition for future open finance capabilities.
@@ -56,7 +61,7 @@ A **gateway‑first architecture** composes these services into a single, consis
 
 ## Demo
 
-Check out the short demo GIF to help you quickly understand the user value.
+The demo shows live enforcement of spend ceilings, category restrictions, and CO₂ scoring. The demo aims to show how APIs can govern agentic transactions and enrich them in real time.
 
 ![Demo](docs/demo_api.gif)
 
