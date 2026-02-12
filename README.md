@@ -45,7 +45,7 @@ Consumers and businesses are moving from manual finance to **agent‑assisted an
 1. Strong AI spend governance so agents can act safely on the consumers behalf.
 2. Transparent impact signals so every payment can be enriched with ESG context. 
 
-This prototype demonstrates Mastercard’s ability to provide both in one open, composable experience.
+This prototype demonstrates the ability to provide both in one open, composable experience.
 
 ### What (Two Core Capabilities)
 
@@ -123,7 +123,7 @@ Authorizes AI agents for spending with security guardrails including spending li
   "status": "Authorized",
   "consent_id": "consent_tkn_2026_x99",
   "merchant_constraints": "restaurants",
-  "message": "AI Agent authorized within defined Mastercard guardrails."
+  "message": "AI Agent authorized within defined guardrails."
 }
 ```
 

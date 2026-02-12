@@ -23,7 +23,7 @@ openapi_tags = [
 ]
 
 app = FastAPI(
-    title="Mastercard Open Finance Gateway",
+    title="Open Finance Gateway",
     description="Prototype gateway demonstrating agent governance + ESG enrichment. Shows business value: safer automated payments and sustainability transparency.",
     version="1.0.0",
     contact={"name": "Maintainer", "email": "you@example.com"},

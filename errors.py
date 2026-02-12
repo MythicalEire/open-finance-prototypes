@@ -4,7 +4,7 @@ from typing import Optional
 
 
 class ErrorCode:
-    """Mastercard API Error Codes"""
+    """API Error Codes"""
     LIMIT_EXCEEDED = "LIMIT_EXCEEDED"
     GOVERNANCE_VIOLATION = "GOVERNANCE_VIOLATION"
     INVALID_INPUT = "INVALID_INPUT"
@@ -12,7 +12,7 @@ class ErrorCode:
 
 
 class APIException(Exception):
-    """Structured exception for Mastercard API errors"""
+    """Structured exception for API errors"""
     def __init__(
         self,
         code: str,

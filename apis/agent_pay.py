@@ -25,13 +25,13 @@ class AgentAuthRequest(BaseModel):
 @router.post(
     "/authorize-agent",
     summary="Authorize AI Agent for Spending",
-    description="Authorizes an AI agent to perform transactions within defined guardrails. Validates spending limits and merchant category restrictions per Mastercard governance policies.",
+    description="Authorizes an AI agent to perform transactions within defined guardrails. Validates spending limits and merchant category restrictions per governance policies.",
     response_description="Authorization consent token and constraints for the requested transaction"
 )
 async def authorize_agent(request: AgentAuthRequest) -> Dict[str, Any]:
     """Authorize an AI agent for spending with security guardrails.
     
-    This endpoint implements Mastercard's governance framework for agentic transactions:
+    This endpoint implements the governance framework for agentic transactions:
     - Enforces spending limit caps (max $500 for automated approval)
     - Validates against prohibited merchant categories (gambling, casino, betting, crypto)
     - Returns a consent token for downstream transaction processing
@@ -69,5 +69,5 @@ async def authorize_agent(request: AgentAuthRequest) -> Dict[str, Any]:
         "status": "Authorized",
         "consent_id": "consent_tkn_2026_x99",
         "merchant_constraints": request.merchant_category,
-        "message": "AI Agent authorized within defined Mastercard guardrails."
+        "message": "AI Agent authorized within defined guardrails."
     }
